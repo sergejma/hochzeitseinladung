@@ -36,16 +36,15 @@ html {
   background: var(--color-cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip; /* clip statt hidden — bricht sticky nicht */
 }
 
 /* Hide scrollbar */
-html::-webkit-scrollbar { display: none; }
-html { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
 
 
 /* ---------- Preloader ---------- */
@@ -163,7 +162,7 @@ html { scrollbar-width: none; }
 .section--hero {
   height: 400vh; /* extended scroll room */
   position: relative;
-  background: #0A0A0A;
+  background: var(--color-text);
 }
 
 .hero-canvas-wrap {

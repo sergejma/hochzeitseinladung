@@ -113,29 +113,21 @@
 
     if (!words.length) return;
 
-    // Initial state
+    // Entrance: text fades in automatically after preloader
     gsap.set(overtitle, { opacity: 0, y: 20 });
-    gsap.set(words, { opacity: 0, y: 60, rotateX: -45, transformOrigin: '50% 100%' });
+    gsap.set(words, { opacity: 0, y: 50, rotateX: -30, transformOrigin: '50% 100%' });
 
-    // Entrance timeline — plays on scroll
-    const tlIn = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.section--hero',
-        start: 'top top',
-        end: '18% top',
-        scrub: 0.6
-      }
-    });
+    const tlIn = gsap.timeline({ delay: 0.3 });
 
-    tlIn.to(overtitle, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' })
+    tlIn.to(overtitle, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' })
       .to(words, {
         opacity: 1,
         y: 0,
         rotateX: 0,
-        stagger: 0.12,
-        duration: 0.8,
+        stagger: 0.18,
+        duration: 1.2,
         ease: 'power3.out'
-      }, '-=0.2');
+      }, '-=0.6');
 
     // Exit timeline
     const tlOut = gsap.timeline({
