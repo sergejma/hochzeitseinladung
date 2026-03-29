@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+frames für header/
+screenshots/
+assets/hero-frames/*.webp

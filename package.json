@@ -1,0 +1,18 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "description": "Digitale Hochzeitseinladung — Feier am 4. Juli 2026",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "extract-frames": "node scripts/extract-frames.mjs",
+    "test-screenshots": "node scripts/test-screenshots.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fal-ai/client": "^1.9.4",
+    "playwright": "^1.58.2"
+  }
+}

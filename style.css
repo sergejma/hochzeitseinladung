@@ -1,0 +1,395 @@
+/* ============================================
+   HOCHZEITSEINLADUNG — style.css
+   Helles Apple-Style Theme, Mobile-First
+   ============================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #FAFAF9;
+  --color-bg-warm: #F5F0EB;
+  --color-bg-dark: #1A1A1A;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #FAFAF9;
+  --color-accent: #2A2A2A;
+  --color-border: #E5E5E3;
+
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-hero: clamp(3rem, 8vw, 8rem);
+  --font-size-heading: clamp(2rem, 5vw, 4.5rem);
+  --font-size-body: clamp(1rem, 1.5vw, 1.25rem);
+  --font-size-small: clamp(0.8rem, 1vw, 0.95rem);
+
+  --nav-height: 60px;
+  --section-padding: clamp(4rem, 10vh, 8rem);
+}
+
+html {
+  font-family: var(--font-main);
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hide scrollbar but keep scrolling */
+html::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; }
+
+
+/* ---------- Preloader ---------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  text-align: center;
+}
+
+.preloader-text {
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.preloader-bar {
+  width: 200px;
+  height: 2px;
+  background: var(--color-border);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--color-text);
+  transition: width 0.1s linear;
+}
+
+
+/* ---------- Navigation ---------- */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  background: rgba(250, 250, 249, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+#nav.visible {
+  transform: translateY(0);
+}
+
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+
+/* ---------- Sections (General) ---------- */
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.section-heading {
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.section-text {
+  font-size: var(--font-size-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 550px;
+}
+
+
+/* ---------- Section 1: Hero ---------- */
+.section--hero {
+  height: 300vh; /* Scroll-Raum fuer Frame-Animation */
+  background: var(--color-bg);
+}
+
+.hero-canvas-wrap {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Gradient overlay for text readability over video */
+.hero-canvas-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+  perspective: 800px;
+}
+
+.hero-title {
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  text-align: center;
+  color: var(--color-text-light);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title-word {
+  display: block;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-subtitle {
+  margin-top: 1.5rem;
+  font-size: var(--font-size-body);
+  font-weight: 400;
+  color: rgba(250, 250, 249, 0.85);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+
+/* ---------- Section 2: Wann & Wo ---------- */
+.section--details {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding) clamp(1.5rem, 4vw, 3rem);
+  background: var(--color-bg-warm);
+}
+
+.details-inner {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.details-calendar {
+  width: 100%;
+  max-width: 320px;
+}
+
+.details-calendar-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
+.details-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.details-date {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.details-location {
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
+}
+
+.details-note {
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+
+/* ---------- Section 3: RSVP ---------- */
+.section--rsvp {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding) clamp(1.5rem, 4vw, 3rem);
+  background: var(--color-bg);
+}
+
+.rsvp-inner {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.rsvp-text {
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.typeform-container {
+  width: 100%;
+  min-height: 500px;
+}
+
+.typeform-container iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+
+/* ---------- Footer ---------- */
+#footer {
+  padding: 3rem clamp(1.5rem, 4vw, 3rem);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: var(--font-size-small);
+  opacity: 0.6;
+}
+
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+  }
+
+  .details-calendar {
+    max-width: 260px;
+  }
+
+  .typeform-container {
+    min-height: 400px;
+  }
+}
