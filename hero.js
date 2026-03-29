@@ -82,12 +82,14 @@
     }
 
     resize() {
-      const rect = this.canvas.getBoundingClientRect();
+      // Nutze visualViewport fuer korrekte Groesse auf Mobile (Adressleiste)
+      const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+      const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      this.canvas.width = rect.width * dpr;
-      this.canvas.height = rect.height * dpr;
+      this.canvas.width = vw * dpr;
+      this.canvas.height = vh * dpr;
       this.currentFrame = -1; // force re-render
-      this.render(Math.max(0, this.currentFrame));
+      this.render(0);
     }
 
     setupScrollTrigger() {

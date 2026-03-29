@@ -170,6 +170,7 @@ body { scrollbar-width: none; }
   top: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh; /* dynamische Viewport-Hoehe auf Mobile */
   overflow: hidden;
 }
 
@@ -190,9 +191,9 @@ body { scrollbar-width: none; }
 }
 
 .hero-canvas-wrap canvas {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .hero-canvas-wrap .hero-poster {
@@ -201,8 +202,9 @@ body { scrollbar-width: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   filter: blur(20px);
-  transform: scale(1.1); /* verhindert Blur-Raender */
+  transform: scale(1.1);
   z-index: 0;
 }
 
@@ -212,6 +214,7 @@ body { scrollbar-width: none; }
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
