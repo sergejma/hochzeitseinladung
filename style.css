@@ -203,13 +203,7 @@ body { scrollbar-width: none; }
   object-fit: cover;
   filter: blur(20px);
   transform: scale(1.1); /* verhindert Blur-Raender */
-  transition: opacity 0.8s ease;
   z-index: 0;
-}
-
-.hero-canvas-wrap .hero-poster.hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .hero-content {

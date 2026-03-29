@@ -94,15 +94,25 @@
       const self = this;
       const poster = document.querySelector('.hero-poster');
 
+      // Blur-Poster blendet per Scroll aus (erste 8% des Scrollwegs)
+      if (poster) {
+        gsap.to(poster, {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: this.config.section,
+            start: 'top top',
+            end: '8% top',
+            scrub: 0.3
+          }
+        });
+      }
+
       ScrollTrigger.create({
         trigger: this.config.section,
         start: 'top top',
         end: 'bottom bottom',
         scrub: 0.4,
         onUpdate: (st) => {
-          if (poster && st.progress > 0.005 && !poster.classList.contains('hidden')) {
-            poster.classList.add('hidden');
-          }
           const frame = Math.round(st.progress * (self.config.totalFrames - 1));
           self.render(frame);
         }
