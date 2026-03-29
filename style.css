@@ -195,6 +195,23 @@ body { scrollbar-width: none; }
   object-fit: cover;
 }
 
+.hero-canvas-wrap .hero-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1); /* verhindert Blur-Raender */
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+.hero-canvas-wrap .hero-poster.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .hero-content {
   position: fixed;
   top: 0;
