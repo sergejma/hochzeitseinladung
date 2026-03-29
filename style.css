@@ -149,7 +149,7 @@ body { scrollbar-width: none; }
 /* ---------- Section Headings ---------- */
 .section-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -241,7 +241,7 @@ body { scrollbar-width: none; }
 
 .hero-overtitle-text {
   font-family: var(--font-sans);
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -251,7 +251,7 @@ body { scrollbar-width: none; }
 /* Hero title */
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-size: clamp(4rem, 11vw, 9.5rem);
   font-weight: 300;
   line-height: 1.05;
   text-align: center;
@@ -278,7 +278,7 @@ body { scrollbar-width: none; }
 .hero-subtitle {
   margin-top: 2rem;
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
   font-weight: 300;
   font-style: italic;
   color: rgba(251, 249, 246, 0.8);
@@ -338,7 +338,7 @@ body { scrollbar-width: none; }
 
 .details-label {
   font-family: var(--font-sans);
-  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -369,7 +369,7 @@ body { scrollbar-width: none; }
 
 .details-key {
   font-family: var(--font-sans);
-  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
   font-weight: 400;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -378,7 +378,7 @@ body { scrollbar-width: none; }
 
 .details-value {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.6rem);
   font-weight: 400;
   color: var(--color-text);
 }
@@ -399,7 +399,7 @@ body { scrollbar-width: none; }
 
 .details-note {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
   font-weight: 300;
   font-style: italic;
   color: var(--color-text-soft);
@@ -435,7 +435,7 @@ body { scrollbar-width: none; }
 
 .rsvp-label {
   font-family: var(--font-sans);
-  font-size: clamp(0.65rem, 1vw, 0.75rem);
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
   font-weight: 400;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -445,7 +445,7 @@ body { scrollbar-width: none; }
 
 .rsvp-text {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.25rem, 1.9vw, 1.5rem);
   font-weight: 300;
   color: var(--color-text-soft);
   margin-bottom: 3rem;
@@ -510,12 +510,12 @@ body { scrollbar-width: none; }
 /* ---------- Mobile refinements ---------- */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
+    font-size: clamp(3.2rem, 13vw, 5rem);
     padding: 0 1rem;
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
     padding: 0 1.5rem;
   }
 
